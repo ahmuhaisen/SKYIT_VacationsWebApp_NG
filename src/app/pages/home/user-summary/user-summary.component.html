@@ -7,12 +7,12 @@
                         <img src="Portrait_Placeholder.png" id="profile-image" class="rounded-circle" alt="Profile Image" width="50" height="50">
                     </div>
                     <div>
-                        <p id="user-name" class="m-0 fw-bold">Ahmad Muhaisen</p>
-                        <p id="user-position" class="text-muted m-0">Software Engineer Intern</p>
+                        <p id="user-name" class="m-0 fw-bold">{{ userSummary?.name }}</p>
+                        <p id="user-position" class="text-muted m-0">{{ userSummary?.position }}</p>
                     </div>
                 </div>
                 <div>
-                    <a href="profile.html" class="btn btn-sm border-success bg-white text-success fw-bold">
+                    <a href="profile.html" class="btn btn-sm border-success bg-white text-success fw-bold px-4">
                         View Profile
                     </a>
                 </div>
@@ -22,14 +22,14 @@
                     <fa-icon [icon]="userIcon" class="fs-2 me-2 text-secondary"></fa-icon>
                     <span>
                         <p class="m-0 fw-bold">Reporting To:</p>
-                        <span id="reporting-to">Widyan Alswaity</span>
+                        <span id="reporting-to">{{ userSummary?.reportingTo }}</span>
                     </span>
                 </div>
                 <div class="col-md-auto col-sm-6 d-flex align-items-center">
                     <fa-icon [icon]="arrowIcon" class="fs-1 me-2 text-secondary"></fa-icon>
                     <span>
                         <p class="m-0 fw-bold">Corporate Level:</p>
-                        <span id="corporate-level">Level 1</span>
+                        <span id="corporate-level">Level {{ userSummary?.corporateLevel }}</span>
                     </span>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="hero-large-number d-flex align-items-center justify-content-center w-100">
-                    <p id="vacation-requests-count" class="m-0">5</p>
+                    <p id="vacation-requests-count" class="m-0">{{ userSummary?.vacationRequestsCount }}</p>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="hero-large-number d-flex align-items-center justify-content-center w-100">
-                    <p id="leave-requests-count" class="m-0">2</p>
+                    <p id="leave-requests-count" class="m-0">{{ userSummary?.leaveRequestsCount }}</p>
                 </div>
             </div>
         </div>
