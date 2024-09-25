@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { inject, Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Pipe({
@@ -6,7 +6,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   standalone: true
 })
 export class HighlightSearchPipe implements PipeTransform {
-  constructor(private sanitizer: DomSanitizer) {}
+  private sanitizer = inject(DomSanitizer);
 
   transform(value: string, term: string | undefined): SafeHtml {
     if (!term) return value;
