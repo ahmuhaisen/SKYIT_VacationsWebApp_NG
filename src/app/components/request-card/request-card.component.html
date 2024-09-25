@@ -3,15 +3,15 @@
         <input type="checkbox" name="vacation-request-select" id="vacation-request-select" class="select">
     </div>
     <div class="text-center mt-3">
-        <img [src]="request().employeeImage ?? 'Portrait_Placeholder.png'"
-        class="rounded-circle" alt="Profile Image" width="85" height="85">
+        <img [src]="request().employeeImage ?? 'Portrait_Placeholder.png'" class="rounded-circle" alt="Profile Image"
+            width="85" height="85">
     </div>
     <div class="card-body text-center">
         <h6 class="card-title" [innerHTML]="request().employeeName | highlight: searchTerm()">
         </h6>
         <div class="data-group">
             <p class="label text-muted">Submitted on:</p>
-            <p class="submitted-on-value text-muted fw-bold" >
+            <p class="submitted-on-value text-muted fw-bold">
                 {{ request().submittedOn | date: 'dd/MM/yyyy' }}
             </p>
         </div>
@@ -29,10 +29,20 @@
         </div>
         <div class="row mt-2">
             <div class="col-md-6">
-                <button type="button" class="btn btn-sm btn-outline-success w-100 d-block mb-1">Decline</button>
+                <button type="button"
+                class="btn btn-sm btn-outline-success w-100 d-block mb-1"
+                [ngClass]="isApproved || isDeclined ? 'disabled' : ''"
+                (click)="onDecline()">
+                    Decline
+                </button>
             </div>
             <div class="col-md-6">
-                <button type="button" class="btn btn-sm btn-success w-100 d-block mb-1">Approve</button>
+                <button type="button"
+                class="btn btn-sm btn-success w-100 d-block mb-1"
+                [ngClass]="isApproved ? 'disabled' : ''"
+                (click)="onApprove()">
+                    {{ isApproved ? 'Approved' : 'Approve' }}
+                </button>
             </div>
         </div>
     </div>

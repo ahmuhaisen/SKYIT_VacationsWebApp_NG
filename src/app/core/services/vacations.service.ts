@@ -1,6 +1,7 @@
 import { inject, Injectable } from "@angular/core";
-import { duration, VacationRequest } from "../models/vacation-request.model";
+
 import { UserService } from "./user.service";
+import { duration, VacationRequest } from "../models/vacation-request.model";
 
 @Injectable({
     providedIn: "root"
