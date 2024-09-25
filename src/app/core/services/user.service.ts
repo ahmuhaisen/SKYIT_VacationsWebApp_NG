@@ -16,7 +16,7 @@ export class UserService {
         lifetimeInYears: 1,
     }
 
-    get loggedInUserName(): string {
+    get loggedInShortUserName(): string {
         return this.loggedInUser.name.split(' ')[0];
     }
 

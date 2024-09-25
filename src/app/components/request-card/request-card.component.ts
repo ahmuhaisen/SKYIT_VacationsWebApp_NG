@@ -3,6 +3,8 @@ import { CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 
 import { VacationRequest } from '../../core/models/vacation-request.model';
 import { HighlightSearchPipe } from '../../core/pipes/highlight-search.pipe';
+import { RequestStatus } from '../../core/enums/request-status.enum';
+
 
 @Component({
   selector: 'app-request-card',
@@ -17,18 +19,25 @@ import { HighlightSearchPipe } from '../../core/pipes/highlight-search.pipe';
   styleUrl: './request-card.component.css'
 })
 export class RequestCardComponent {
+  RequestStatus = RequestStatus;
 
   request = input.required<VacationRequest>();
   searchTerm = input<string>();
 
-  isApproved = false;
-  isDeclined = false;
-
   onApprove() {
-    this.isApproved = true;
+    this.request().status = RequestStatus.Approved;
+    //Approve Logic here
   }
   onDecline() {
-    this.isApproved = false;
-    this.isDeclined = true;
+    this.request().status = RequestStatus.Declined;
+    //Decline Logic here
+  }
+
+  get isApproveButtonDisabled(): boolean {
+    return this.request().status === RequestStatus.Approved || this.request().status === RequestStatus.Declined;
+  }
+
+  get isDeclineButtonDisabled(): boolean {
+    return this.request().status === RequestStatus.Declined || this.request().status === RequestStatus.Approved;
   }
 }

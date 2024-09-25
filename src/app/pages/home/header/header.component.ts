@@ -11,5 +11,5 @@ import { UserService } from '../../../core/services/user.service';
 })
 export class HeaderComponent {
   userService = inject(UserService);
-  loggedInUserName = this.userService.loggedInUserName;
+  loggedInUserName = this.userService.loggedInShortUserName;
 }

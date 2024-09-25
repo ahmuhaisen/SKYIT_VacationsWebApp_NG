@@ -2,6 +2,7 @@ import { inject, Injectable } from "@angular/core";
 
 import { UserService } from "./user.service";
 import { duration, VacationRequest } from "../models/vacation-request.model";
+import { RequestStatus } from "../enums/request-status.enum";
 
 @Injectable({
     providedIn: "root"
@@ -16,7 +17,8 @@ export class VacationsService {
             employeeImage: null,
             submittedOn: new Date('2/5/2024'),
             duration: new duration(new Date('5/5/2024'), new Date('5/15/2024')),
-            salary: 4000
+            salary: 4000,
+            status: RequestStatus.Declined
         },
         {
             id: 2,
@@ -25,7 +27,8 @@ export class VacationsService {
             employeeImage: null,
             submittedOn: new Date(),
             duration: new duration(new Date('9/10/2024'), new Date('9/11/2024')),
-            salary: 2500
+            salary: 2500,
+            status: RequestStatus.Declined
         },
         {
             id: 3,
@@ -34,7 +37,8 @@ export class VacationsService {
             employeeImage: null,
             submittedOn: new Date(),
             duration: new duration(new Date('9/10/2024'), new Date('9/11/2024')),
-            salary: 4000
+            salary: 4000,
+            status: RequestStatus.Pending
         },
         {
             id: 4,
@@ -43,7 +47,8 @@ export class VacationsService {
             employeeImage: null,
             submittedOn: new Date(),
             duration: new duration(new Date('5/5/2024'), new Date('9/5/2024')),
-            salary: 2500
+            salary: 2500,
+            status: RequestStatus.Pending
         },
         {
             id: 5,
@@ -52,7 +57,8 @@ export class VacationsService {
             employeeImage: null,
             submittedOn: new Date(),
             duration: new duration(new Date('9/25/2024'), new Date('10/11/2024')),
-            salary: 4000
+            salary: 4000,
+            status: RequestStatus.Approved
         },
         {
             id: 6,
@@ -61,7 +67,8 @@ export class VacationsService {
             employeeImage: null,
             submittedOn: new Date('9/20/2024'),
             duration: new duration(new Date('9/25/2024'), new Date('9/29/2024')),
-            salary: 4000
+            salary: 4000,
+            status: RequestStatus.Approved
         },
         {
             id: 7,
@@ -70,7 +77,8 @@ export class VacationsService {
             employeeImage: null,
             submittedOn: new Date(),
             duration: new duration(new Date('5/10/2024'), new Date('9/11/2024')),
-            salary: 2500
+            salary: 2500,
+            status: RequestStatus.Declined
         },
     ];
 

@@ -8,17 +8,13 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class HighlightSearchPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
 
-  transform(value: string, args: string | undefined): SafeHtml {
-    if (!args) {
-      return value;
-    }
+  transform(value: string, term: string | undefined): SafeHtml {
+    if (!term) return value;
 
-    const regex = new RegExp(args, 'gi');
+    const regex = new RegExp(term, 'gi');
     const match = value.match(regex);
 
-    if (!match) {
-      return value;
-    }
+    if (!match) return value;
 
     const highlightedValue = value.replace(
       regex,

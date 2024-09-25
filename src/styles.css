@@ -157,6 +157,7 @@ span {
 
 .highlight {
   background-color: yellow;
+  outline: 1px solid red;
   color: black;
   font-size: inherit;
 }

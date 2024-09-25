@@ -1,3 +1,5 @@
+import { RequestStatus } from "../enums/request-status.enum";
+
 export interface VacationRequest {
     id: number;
     employeeId: number;
@@ -6,6 +8,7 @@ export interface VacationRequest {
     submittedOn: Date;
     duration: duration;
     salary: number;
+    status: RequestStatus;
 }
 
 export class duration {

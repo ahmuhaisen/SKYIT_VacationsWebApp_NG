@@ -31,17 +31,17 @@
             <div class="col-md-6">
                 <button type="button"
                 class="btn btn-sm btn-outline-success w-100 d-block mb-1"
-                [ngClass]="isApproved || isDeclined ? 'disabled' : ''"
+                [ngClass]="isDeclineButtonDisabled ? 'disabled' : ''"
                 (click)="onDecline()">
-                    Decline
+                    {{ request().status === RequestStatus.Declined ? 'Declined' : 'Decline' }}
                 </button>
             </div>
             <div class="col-md-6">
                 <button type="button"
                 class="btn btn-sm btn-success w-100 d-block mb-1"
-                [ngClass]="isApproved ? 'disabled' : ''"
+                [ngClass]="isApproveButtonDisabled ? 'disabled' : ''"
                 (click)="onApprove()">
-                    {{ isApproved ? 'Approved' : 'Approve' }}
+                    {{ request().status === RequestStatus.Approved ? 'Approved' : 'Approve' }}
                 </button>
             </div>
         </div>
