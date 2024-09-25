@@ -1,0 +1,31 @@
+<section class="container mt-5">
+    <div class="bg-light shadow border-0 rounded-4 py-3 px-5">
+        <div class="d-flex flex-lg-row flex-sm-column justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <fa-icon [icon]="icon()" class="text-success fs-2 me-3"></fa-icon>
+                <span class="section-title text-dark">{{ title() }}</span>
+            </div>
+            <div class="search-container d-flex align-items-center justify-content-between bg-white rounded-5 p-1">
+                <div class="me-2">
+                    <fa-icon [icon]="searchIcon" class="text-success ms-1"></fa-icon>
+                </div>
+                <input type="text" id="search-input" class="w-100" placeholder="Search...">
+                <button class="search-button btn btn-sm btn-success me-2" hidden>
+                    search
+                </button>
+            </div>
+        </div>
+        <hr>
+
+        <div>
+            <ng-content></ng-content>
+        </div>
+
+        <div class="text-end">
+            <a href="#" class="link">
+                View More
+                <fa-icon [icon]="arrowRightIcon" class="arrow"></fa-icon>
+            </a>
+        </div>
+    </div>
+</section>

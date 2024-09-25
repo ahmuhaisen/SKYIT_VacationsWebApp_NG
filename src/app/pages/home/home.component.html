@@ -1,7 +1,18 @@
-<section class="hero container mt-5">
+<section class="hero container my-5">
     <app-header />
 
     <app-user-summary />
 
     <app-latest-news-slider />
+
+    <app-section [icon]="requestsIcon" title="Vacation Requests">
+        <div class="row">
+            @for (req of vacationRequests; track req.id) {
+                <div class="col-md-3">
+                    <app-request-card [request]="req"/>
+                </div>
+            }
+        </div>
+    </app-section>
+
 </section>

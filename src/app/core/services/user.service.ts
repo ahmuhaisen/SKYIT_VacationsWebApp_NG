@@ -5,6 +5,7 @@ import { User, UserSummary } from "../models/user.model";
 export class UserService {
 
     private loggedInUser: User = {
+        id: 1,
         name: "Ahmad Muhaisen",
         profileImage: null,
         department: "Development",
