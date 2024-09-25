@@ -1,1 +1,153 @@
-/* You can add global styles to this file, and also import other style files */
+p,
+span {
+  font-size: small;
+}
+
+.nav-item a {
+  color: #fff !important;
+  font-size: small !important;
+}
+
+.nav-item a:hover {
+  color: #ddd9d9 !important;
+}
+
+.nav-item a i {
+  color: #fff !important;
+  font-size: large;
+}
+
+.active {
+  font-weight: 700 !important;
+}
+
+.bg-light {
+  background-color: #f6f6f6 !important;
+}
+
+.hero-large-icon {
+  font-size: 50px !important;
+}
+
+.hero-large-number p {
+  font-size: 70px !important;
+  font-weight: 500 !important;
+}
+
+.section-title {
+  font-weight: 700 !important;
+  font-size: 20px !important;
+}
+
+.carousel-item img {
+  height: 300px !important;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.carousel-indicators {
+  bottom: -44px !important;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: green !important;
+}
+
+.carousel-caption div {
+  background-color: rgba(255, 255, 255, 0.685) !important;
+  color: black !important;
+  text-align: left !important;
+  width: 100% !important;
+  padding: 2rem !important;
+}
+
+.carousel-caption div h6 {
+  margin: 0 !important;
+  font-weight: 600 !important;
+}
+
+.carousel-caption div p {
+  margin: 0 !important;
+  font-weight: normal !important;
+}
+
+.search-container {
+  width: 300px !important;
+  height: 40px;
+  border: 0.3px solid rgb(142, 141, 141);
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  margin-right: 5px;
+}
+
+.data-group {
+  margin-top: 10px;
+}
+
+.data-group p {
+  font-size: 15px !important;
+  text-align: left;
+  margin: 0;
+}
+
+.link {
+  text-decoration: none !important;
+  color: #198754 !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  position: relative;
+}
+
+.arrow {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  margin-left: 1px;
+}
+
+.link:hover .arrow {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.pagination {
+  background-color: #d3e8de !important;
+  border-radius: 50px !important;
+  padding: 5px;
+}
+
+.page-link {
+  border-radius: 50px !important;
+  background-color: #d3e8de !important;
+  color: #198754;
+}
+.page-link:hover {
+  background-color: #aec8bb !important;
+  color: #198754;
+}
+
+.page-item .current {
+  background-color: #ffffff !important;
+}
+
+.search-result {
+  padding: 10px;
+  border-bottom: #a7a7a787 1px solid;
+  text-decoration: none;
+  color: #3d3d3d;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background-color: #f0f0f0;
+}
