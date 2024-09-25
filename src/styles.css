@@ -151,3 +151,12 @@ span {
 .search-result:hover {
   background-color: #f0f0f0;
 }
+
+
+/* Highlight search term */
+
+.highlight {
+  background-color: yellow;
+  color: black;
+  font-size: inherit;
+}

@@ -18,14 +18,21 @@ import { VacationsService } from '../../core/services/vacations.service';
     LatestNewsSliderComponent,
     SectionComponent,
     RequestCardComponent
-],
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
   requestsIcon = faAddressBook;
 
   private vacationRequestsService = inject(VacationsService);
 
   vacationRequests = this.vacationRequestsService.getLoggedInUserVacationRequests(4);
+
+  searchTerm = '';
+
+  onSearch($event: string) {
+    this.searchTerm = $event;
+  }
 }

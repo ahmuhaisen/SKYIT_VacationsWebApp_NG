@@ -7,12 +7,11 @@
         class="rounded-circle" alt="Profile Image" width="85" height="85">
     </div>
     <div class="card-body text-center">
-        <h6 class="card-title">
-            {{ request().employeeName }}
+        <h6 class="card-title" [innerHTML]="request().employeeName | highlight: searchTerm()">
         </h6>
         <div class="data-group">
             <p class="label text-muted">Submitted on:</p>
-            <p class="submitted-on-value text-muted fw-bold">
+            <p class="submitted-on-value text-muted fw-bold" >
                 {{ request().submittedOn | date: 'dd/MM/yyyy' }}
             </p>
         </div>

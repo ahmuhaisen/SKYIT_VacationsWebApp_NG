@@ -9,10 +9,7 @@
                 <div class="me-2">
                     <fa-icon [icon]="searchIcon" class="text-success ms-1"></fa-icon>
                 </div>
-                <input type="text" id="search-input" class="w-100" placeholder="Search...">
-                <button class="search-button btn btn-sm btn-success me-2" hidden>
-                    search
-                </button>
+                <input type="text" name="search" class="w-100" placeholder="Search..." (input)="onSearch($event.target!)">
             </div>
         </div>
         <hr>

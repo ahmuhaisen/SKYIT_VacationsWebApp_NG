@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, EventEmitter, input, Output } from '@angular/core';
 import { FontAwesomeModule, IconDefinition } from '@fortawesome/angular-fontawesome';
 import { faArrowRight, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,4 +15,12 @@ export class SectionComponent {
 
   icon = input.required<IconDefinition>();
   title = input.required<string>();
+
+  @Output() search = new EventEmitter<string>();
+
+  onSearch(target: EventTarget) {
+    const input = target as HTMLInputElement;
+    console.log(input.value);
+    this.search.emit(input.value);
+  }
 }
