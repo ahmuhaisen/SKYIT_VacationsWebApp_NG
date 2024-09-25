@@ -12,7 +12,8 @@
                     </div>
                 </div>
                 <div>
-                    <a href="profile.html" class="btn btn-sm border-success bg-white text-success fw-bold px-4">
+                    <a [routerLink]="['/profile', userSummary?.id]"
+                       class="btn btn-sm border-success bg-white text-success fw-bold px-4">
                         View Profile
                     </a>
                 </div>
