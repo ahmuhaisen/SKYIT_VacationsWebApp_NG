@@ -1,0 +1,9 @@
+<div class="carousel-item" [ngClass]="isActive() ? 'active' : ''">
+    <img [src]="slider().imageUrl" class="d-block w-100" alt="Slider">
+    <div class="carousel-caption d-none d-md-block">
+        <div class="w-100 p-0" style="padding: 20px 50px !important;">
+            <h6>{{ slider().title }}</h6>
+            <p>{{ slider().description }}</p>
+        </div>
+    </div>
+</div>

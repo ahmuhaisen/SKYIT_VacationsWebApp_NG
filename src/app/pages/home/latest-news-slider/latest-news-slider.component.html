@@ -14,39 +14,9 @@
 
             <!-- Carousel Items -->
             <div class="carousel-inner" style="height: 300px !important;">
-                <!-- Slide 0 -->
-                <div class="carousel-item active">
-                    <img src="slider-0.png" class="d-block w-100" alt="Slider 0">
-                    <div class="carousel-caption d-none d-md-block">
-                        <div class="w-100 p-0" style="padding: 20px 50px !important;">
-                            <h6>ahmuhaisen has published a new API project 🔥</h6>
-                            <p>An ASP.NET 8 Restful API project designed to mimic the basic functionalities of Good
-                                Reads website!</p>
-                            <a href="https://github.com/ahmuhaisen/GoodReadsClone" class="btn btn-sm btn-success mt-2"
-                                target="_blank">
-                                <i class="bi bi-github"></i> View Project Repo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="slider-1.png" class="d-block w-100" alt="Slider 0">
-                    <div class="carousel-caption d-none d-md-block">
-                        <div class="w-100 p-0" style="padding: 20px 50px !important;">
-                            <h6>Best Spots For A Summer Vacation</h6>
-                            <p>Check out these spots where we provide you with a discount code! Type VACATION when inserting the promo code and behold the surprise!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="slider-2.png" class="d-block w-100" alt="Slider 0">
-                    <div class="carousel-caption d-none d-md-block">
-                        <div class="w-100 p-0" style="padding: 20px 50px !important;">
-                            <h6>Best Spots For A Summer Vacation</h6>
-                            <p>Check out these spots where we provide you with a discount code! Type VACATION when inserting the promo code and behold the surprise!</p>
-                        </div>
-                    </div>
-                </div>
+                @for (slider of sliders; track $index) {
+                    <app-slide [slider]="slider" [isActive]="$index === 0"/>
+                }
             </div>
         </div>
     </div>
