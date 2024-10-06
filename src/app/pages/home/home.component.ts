@@ -4,10 +4,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HeaderComponent } from "./header/header.component";
 import { VacationsService } from '../../core/services/vacations.service';
-import { UserSummaryComponent } from "./user-summary/user-summary.component";
 import { SectionComponent } from "../../components/section/section.component";
 import { RequestCardComponent } from "../../components/request-card/request-card.component";
 import { LatestNewsSliderComponent } from './latest-news-slider/latest-news-slider.component';
+import { HomeUserInfoComponent } from './home-info/home-user-info.component';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +15,12 @@ import { LatestNewsSliderComponent } from './latest-news-slider/latest-news-slid
   imports: [
     FontAwesomeModule,
     HeaderComponent,
-    UserSummaryComponent,
+    HomeUserInfoComponent,
     LatestNewsSliderComponent,
     SectionComponent,
     RequestCardComponent
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
 })
 export class HomeComponent {
 

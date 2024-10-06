@@ -1,0 +1,16 @@
+<div class="row mt-5">
+
+    <!-- User Summary -->
+    <app-user-short-summary [userSummary]="userSummary!"
+    class="col-md-6 mt-1" />
+
+    <!-- Vacation Requests -->
+    <app-user-summary-count [icon]="requestsIcon" title="Vacation Requests"
+        [value]="userSummary?.vacationRequestsCount!"
+        class="col-md-3 mt-1" />
+
+    <!-- Leave Requests -->
+    <app-user-summary-count [icon]="leaveRequestsIcon" title="Leave Requests" [value]="userSummary?.leaveRequestsCount!"
+        class="col-md-3 mt-1" />
+
+</div>

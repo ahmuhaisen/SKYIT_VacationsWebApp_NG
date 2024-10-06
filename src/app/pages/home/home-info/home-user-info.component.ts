@@ -5,18 +5,21 @@ import { faAddressBook, faSquareUpRight, faUserLarge, faUsers } from '@fortaweso
 
 import { UserSummary } from '../../../core/models/user.model';
 import { UserService } from '../../../core/services/user.service';
+import { UserSummaryCountComponent } from "./user-summary-count/user-summary-count.component";
+import { UserShortSummaryComponent } from "./user-short-summary/user-short-summary.component";
 
 @Component({
   selector: 'app-user-summary',
   standalone: true,
   imports: [
     RouterLink,
-    FontAwesomeModule
-  ],
-  templateUrl: './user-summary.component.html',
-  styleUrl: './user-summary.component.css'
+    FontAwesomeModule,
+    UserSummaryCountComponent,
+    UserShortSummaryComponent
+],
+  templateUrl: './home-user-info.component.html'
 })
-export class UserSummaryComponent implements OnInit {
+export class HomeUserInfoComponent implements OnInit {
   userIcon = faUserLarge
   arrowIcon = faSquareUpRight
   requestsIcon = faAddressBook

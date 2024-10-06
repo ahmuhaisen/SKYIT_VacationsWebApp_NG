@@ -1,0 +1,13 @@
+<div class="container p-0 w-100 h-100">
+    <div class="bg-success text-white shadow border-0 rounded-4 p-3 h-100 d-flex justify-content-between">
+        <div class="text-center">
+            <fa-icon [icon]="icon()" class="hero-large-icon"></fa-icon>
+            <div>
+                <small class="m-0">{{ title() }}</small>
+            </div>
+        </div>
+        <div class="hero-large-number d-flex align-items-center justify-content-center w-100">
+            <p id="vacation-requests-count" class="m-0">{{ value() ?? 'N/A' }}</p>
+        </div>
+    </div>
+</div>
