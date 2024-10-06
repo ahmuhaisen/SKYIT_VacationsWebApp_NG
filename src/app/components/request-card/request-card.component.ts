@@ -23,6 +23,7 @@ export class RequestCardComponent {
 
   request = input.required<VacationRequest>();
   searchTerm = input<string>();
+  isSelected = input<boolean>(false);
 
   onApprove() {
     this.request().status = RequestStatus.Approved;

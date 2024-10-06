@@ -1,7 +1,9 @@
 <div class="card rounded-0 shadow-sm">
-    <div class="card-header" style="display: none;">
-        <input type="checkbox" name="vacation-request-select" id="vacation-request-select" class="select">
-    </div>
+    @if(isSelected()){
+        <div class="card-header">
+            <input checked type="checkbox" name="vacation-request-select" id="vacation-request-select" class="select">
+        </div>
+    }
     <div class="text-center mt-3">
         <img [src]="request().employeeImage ?? 'Portrait_Placeholder.png'" class="rounded-circle" alt="Profile Image"
             width="85" height="85">

@@ -2,7 +2,7 @@
     <app-user-full-summary />
 </div>
 
-<app-section [icon]="clockRotateIcon" title="History" [searchable]="false" [linkRef]="'/requests/all'">
+<app-section [icon]="clockRotateIcon" title="History" [searchable]="false" [linkRef]="'/requests'">
     <div class="row">
         @for (vacation of vacationHistory; track vacation.id) {
             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -13,7 +13,7 @@
 </app-section>
 
 
-<app-section [icon]="pauseIcon" title="Pending Requests" [searchable]="false" [linkRef]="'/requests/all'">
+<app-section [icon]="pauseIcon" title="Pending Requests" [searchable]="false" [linkRef]="'/requests'">
     <div class="row">
         @for (request of pendingRequests; track $index) {
             <div class="col-lg-3 col-md-6 mb-2">

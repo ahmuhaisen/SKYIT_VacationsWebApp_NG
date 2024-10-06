@@ -5,6 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAddressBook, faChevronLeft, faChevronRight, faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import { VacationsService } from '../../core/services/vacations.service';
+import { RequestCardComponent } from "../../components/request-card/request-card.component";
 
 @Component({
   selector: 'app-all-requests',
@@ -15,8 +16,9 @@ import { VacationsService } from '../../core/services/vacations.service';
     NgClass,
     RouterLink,
     DatePipe,
-    CurrencyPipe
-  ],
+    CurrencyPipe,
+    RequestCardComponent
+],
   templateUrl: './all-requests.component.html',
   styleUrl: './all-requests.component.css'
 })
@@ -37,6 +39,8 @@ export class AllRequestsComponent {
   requests = computed(() => {
     return this.vacationsService.getAllVacationRequests(this.noOfRequestsPerPage, this.pageIndex())
   });
+
+  isSelectAllTriggered = signal(false);
 
   get totalPages() {
     return this.vacationsService.getVacationRequestsTotalPages(this.noOfRequestsPerPage);
@@ -62,5 +66,9 @@ export class AllRequestsComponent {
     else {
       this.pageIndex.set(1);
     }
+  }
+
+  onSelectChange(target: EventTarget) {
+    this.isSelectAllTriggered.set((target as HTMLInputElement).checked);
   }
 }
