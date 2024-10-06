@@ -102,9 +102,10 @@ span {
 .link {
   text-decoration: none !important;
   color: #198754 !important;
-  font-size: 1rem !important;
+  font-size: 15px !important;
   font-weight: 700 !important;
   position: relative;
+  margin-top: 10px !important;
 }
 
 .arrow {
@@ -138,6 +139,28 @@ span {
 
 .page-item .current {
   background-color: #ffffff !important;
+}
+
+.history-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #212529;
+}
+
+.history-card-duration {
+  font-size: 1rem;
+  color: #717171;
+}
+
+.duration-in-days {
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.approved-by {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #717171;
 }
 
 .search-result {

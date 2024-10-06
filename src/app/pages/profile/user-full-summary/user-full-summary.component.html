@@ -1,0 +1,57 @@
+<div class="card bg-light bg-body-tertiary shadow border-0 rounded-4 p-3">
+    <div class="row d-flex justify-content-between align-items-center">
+        <div class="d-flex col-md-7">
+            <div class="me-3 d-flex align-items-center">
+                <img [src]="userSummary.profileImage ?? 'Portrait_Placeholder.png'" class="rounded-circle"
+                    alt="Profile Image" width="60" height="60">
+            </div>
+            <div>
+                <p class="user-name">{{ userSummary.name }}</p>
+                <p class="department-name">{{ userSummary.department }}</p>
+                <p class="position">{{ userSummary.position }}</p>
+            </div>
+        </div>
+        <div class="col-auto">
+            <a href="profile.html" class="btn btn-sm btn-success fw-bold px-4">
+                New Request
+            </a>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-between mt-3">
+        <div class="col-md-auto col-sm-6 d-flex align-items-center">
+            <fa-icon [icon]="userIcon" class="fs-1 me-3 text-secondary"></fa-icon>
+            <span>
+                <p class="fw-bold">Reporting To:</p>
+                <span id="reporting-to">{{ userSummary.reportingTo }}</span>
+            </span>
+        </div>
+        <div class="col-md-auto col-sm-6 d-flex align-items-center">
+            <fa-icon [icon]="arrowIcon" class="fs-1 me-3 text-secondary"></fa-icon>
+            <span>
+                <p class="fw-bold">Corporate Level:</p>
+                <span id="corporate-level">Level {{ userSummary.corporateLevel }}</span>
+            </span>
+        </div>
+        <div class="col-md-auto col-sm-6 d-flex align-items-center">
+            <fa-icon [icon]="hourglassHalfIcon" class="fs-1 me-3 text-secondary"></fa-icon>
+            <span>
+                <p class="fw-bold">Lifetime:</p>
+                <span id="lifetime-in-years">{{ userSummary.lifetimeInYears }} Year(s)</span>
+            </span>
+        </div>
+        <div class="col-md-auto col-sm-6 d-flex align-items-center">
+            <fa-icon [icon]="calenderMinusIcon" class="fs-1 me-3 text-secondary"></fa-icon>
+            <span>
+                <p class="fw-bold">Vacation Days Left:</p>
+                <span id="vacation-days-left">{{ vacationDaysLeft }} Days</span>
+            </span>
+        </div>
+        <div class="col-md-auto col-sm-6 d-flex align-items-center">
+            <fa-icon [icon]="pillsIcon" class="fs-1 me-3 text-secondary"></fa-icon>
+            <span>
+                <p class="fw-bold">Sick Days Left:</p>
+                <span id="sick-days-left">{{ sickDaysLeft }} Days</span>
+            </span>
+        </div>
+    </div>
+</div>

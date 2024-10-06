@@ -1,7 +1,24 @@
-<div class="h-100 d-flex justify-content-center align-items-center">
-    <div class="text-center">
-        <p class="display-6 fw-bold text-success">Coming Soon</p>
-        <p>Profile page coming soon</p>
-        <a routerLink="" class="btn btn-success btn-sm px-5">Go Home</a>
-    </div>
+<div class="container my-5">
+    <app-user-full-summary />
 </div>
+
+<app-section [icon]="clockRotateIcon" title="History" [searchable]="false">
+    <div class="row">
+        @for (vacation of vacationHistory; track vacation.id) {
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <app-vacation-history-card [vacation]="vacation" />
+            </div>
+        }
+    </div>
+</app-section>
+
+
+<app-section [icon]="pauseIcon" title="Pending Requests" [searchable]="false">
+    <div class="row">
+        @for (request of pendingRequests; track $index) {
+            <div class="col-lg-3 col-md-6 mb-2">
+                <app-pending-request-card [request]="request"/>
+            </div>
+        }
+    </div>
+</app-section>

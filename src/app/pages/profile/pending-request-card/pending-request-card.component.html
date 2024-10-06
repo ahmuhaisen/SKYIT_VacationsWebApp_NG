@@ -1,0 +1,23 @@
+<div class="card rounded-0 shadow-sm">
+    <div class="text-center mt-3">
+        <img [src]="request().employeeImage ?? 'Portrait_Placeholder.png'"
+        class="rounded-circle" alt="Profile Image"
+        width="85" height="85">
+    </div>
+
+    <div class="card-body text-center">
+        <h6 class="card-title">{{request().employeeName}}</h6>
+        <div class="data-group">
+            <p class="label text-muted">Submitted on:</p>
+            <p class="submitted-on-value text-muted fw-bold">{{ request().submittedOn | date: 'dd/MM/yyyy' }}</p>
+        </div>
+        <div class="data-group">
+            <p class="label text-muted">Duration:</p>
+            <p class="submitted-on-value text-muted fw-bold">{{ request().duration.durationString }} ({{ request().duration.startDate | date: 'dd/MM/yyyy' }} - {{request().duration.endDate | date: 'dd/MM/yyyy'}})</p>
+        </div>
+        <div class="text-start mt-5">
+            <p class="text-muted fw-bold" style="font-size: 0.8rem;">Currently at:</p>
+            <p class="text-success fw-bold" style="font-size: 1rem;">Omar Ahmad</p>
+        </div>
+    </div>
+</div>

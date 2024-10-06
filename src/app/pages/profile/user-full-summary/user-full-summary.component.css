@@ -1,0 +1,17 @@
+p {
+    margin: 0;
+}
+.user-name {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.department-name {
+    color: #484e53;
+    font-size: 14px;
+}
+
+.position {
+    color: #8e99a2;
+    font-size: 14px;
+}

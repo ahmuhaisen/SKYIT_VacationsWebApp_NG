@@ -15,6 +15,7 @@ export class SectionComponent {
 
   icon = input.required<IconDefinition>();
   title = input.required<string>();
+  searchable = input<boolean>(true);
 
   @Output() search = new EventEmitter<string>();
 

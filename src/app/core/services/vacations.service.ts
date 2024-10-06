@@ -68,7 +68,7 @@ export class VacationsService {
             submittedOn: new Date('9/20/2024'),
             duration: new duration(new Date('9/25/2024'), new Date('9/29/2024')),
             salary: 4000,
-            status: RequestStatus.Approved
+            status: RequestStatus.Pending
         },
         {
             id: 7,
@@ -80,6 +80,16 @@ export class VacationsService {
             salary: 2500,
             status: RequestStatus.Declined
         },
+        {
+            id: 6,
+            employeeId: 1,
+            employeeName: "Ahmad Muhaisen",
+            employeeImage: null,
+            submittedOn: new Date('9/20/2024'),
+            duration: new duration(new Date('9/26/2024'), new Date('9/29/2024')),
+            salary: 4000,
+            status: RequestStatus.Pending
+        },
     ];
 
     userService = inject(UserService);
@@ -90,4 +100,20 @@ export class VacationsService {
                    .sort((a, b) => b.submittedOn.getTime() - a.submittedOn.getTime())
                    .slice(0, pageSize);
     }
+
+    getLoggedInUserRequests(pageSize: number | null  = null, status: RequestStatus | null = null) {
+        let condition = (request: VacationRequest) => {
+            if(status) {
+                return request.status === status && request.employeeId === this.userService.loggedInUserDetails.id;
+            }
+
+            return request.employeeId === this.userService.loggedInUserDetails.id;
+        };
+
+        return this.vacationRequest
+                   .filter(condition)
+                   .sort((a, b) => b.submittedOn.getTime() - a.submittedOn.getTime())
+                   .slice(0, pageSize ?? this.vacationRequest.length);
+    }
+
 }

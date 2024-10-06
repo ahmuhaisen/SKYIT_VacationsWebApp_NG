@@ -1,0 +1,8 @@
+<div class="card bg-white mb-4 p-3 shadow border-0 rounded-2">
+    <p class="history-card-title">{{ vacation().vacationType }} Vacation</p>
+    <p class="history-card-duration">
+        <span class="duration">{{vacation().duration.startDate | date: 'dd/MM/yyyy'}} - {{vacation().duration.endDate | date: 'dd/MM/yyyy'}}</span>
+        <span class="duration-in-days">{{ vacation().duration.durationString }}</span>
+    </p>
+    <p class="approved-by">Approved by: {{ vacation().approverBy }}</p>
+</div>

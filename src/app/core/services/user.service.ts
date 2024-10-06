@@ -27,8 +27,19 @@ export class UserService {
     get loggedInUserSummary(): UserSummary {
         return {
             ...this.loggedInUser,
+
+            // TODO:
+            // Get them from an API
             vacationRequestsCount: 1,
             leaveRequestsCount: 2
         }
+    }
+
+    get loggedInUserVacationDaysLeft(): number {
+        return 3;
+    }
+
+    get loggedInUserSickDaysLeft(): number {
+        return 2;
     }
 }
