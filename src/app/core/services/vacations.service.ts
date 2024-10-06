@@ -94,24 +94,18 @@ export class VacationsService {
 
     userService = inject(UserService);
 
-    getLoggedInUserVacationRequests(pageSize: number) {
-        return this.vacationRequest
-                   .filter(request => request.employeeId === this.userService.loggedInUserDetails.id)
-                   .sort((a, b) => b.submittedOn.getTime() - a.submittedOn.getTime())
-                   .slice(0, pageSize);
-    }
-
-    getLoggedInUserRequests(pageSize: number | null  = null, status: RequestStatus | null = null) {
-        let condition = (request: VacationRequest) => {
+    getLoggedInUserVacationRequests(pageSize: number | null  = null, status: RequestStatus | null = null) {
+        let isQueried = (request: VacationRequest) => {
             if(status) {
-                return request.status === status && request.employeeId === this.userService.loggedInUserDetails.id;
+                return request.status === status
+                && request.employeeId === this.userService.loggedInUserDetails.id;
             }
 
             return request.employeeId === this.userService.loggedInUserDetails.id;
         };
 
         return this.vacationRequest
-                   .filter(condition)
+                   .filter(isQueried)
                    .sort((a, b) => b.submittedOn.getTime() - a.submittedOn.getTime())
                    .slice(0, pageSize ?? this.vacationRequest.length);
     }

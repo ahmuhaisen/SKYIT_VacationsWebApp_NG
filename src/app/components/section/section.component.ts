@@ -1,3 +1,4 @@
+import { RouterLink, UrlTree } from '@angular/router';
 import { Component, EventEmitter, input, Output } from '@angular/core';
 import { FontAwesomeModule, IconDefinition } from '@fortawesome/angular-fontawesome';
 import { faArrowRight, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -5,7 +6,10 @@ import { faArrowRight, faMagnifyingGlass } from '@fortawesome/free-solid-svg-ico
 @Component({
   selector: 'app-section',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [
+    RouterLink,
+    FontAwesomeModule
+  ],
   templateUrl: './section.component.html',
   styleUrl: './section.component.css'
 })
@@ -16,6 +20,8 @@ export class SectionComponent {
   icon = input.required<IconDefinition>();
   title = input.required<string>();
   searchable = input<boolean>(true);
+  linkRef = input<string>('/');
+
 
   @Output() search = new EventEmitter<string>();
 

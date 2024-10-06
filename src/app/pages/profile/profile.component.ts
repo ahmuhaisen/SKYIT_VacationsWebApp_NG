@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void{
     this.vacationHistory = this.vacationHistoryService.getEmployeeVacationHistoryById();
-    this.pendingRequests = this.vacationsService.getLoggedInUserRequests(4, RequestStatus.Pending);
+    this.pendingRequests = this.vacationsService.getLoggedInUserVacationRequests(4, RequestStatus.Pending);
     console.log(this.pendingRequests);
   }
 }
