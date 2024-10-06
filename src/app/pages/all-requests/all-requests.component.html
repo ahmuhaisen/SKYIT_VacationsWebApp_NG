@@ -1,0 +1,117 @@
+<div class="container mt-5">
+
+    <!-- Header with search bar -->
+    <div class="d-flex flex-lg-row flex-sm-column justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <fa-icon [icon]="addressBookIcon" class="text-success fs-2 me-3"></fa-icon>
+            <span class="section-title text-dark">Vacation Requests</span>
+        </div>
+
+        <div class="search-container d-flex align-items-center justify-content-between bg-white rounded-5 p-1">
+            <div class="me-2">
+                <fa-icon [icon]="searchIcon" class="text-success ms-1"></fa-icon>
+            </div>
+            <input type="text" name="search" class="w-100" placeholder="Search..." (input)="onSearch($event.target!)">
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Select all and Filter -->
+    <div class="d-flex justify-content-between">
+        <div>
+            <input type="checkbox" name="select-all" id="select-all">
+            <label for="select" class="text-muted">Select All</label>
+        </div>
+        <div>
+            <fa-icon [icon]="filterIcon" class="fs-3 text-success" />
+        </div>
+    </div>
+
+    <!-- Request Cards -->
+    <div class="row mt-3">
+        @for(request of requests(); track $index) {
+        <div class="col-lg-3 col-md-6 mb-2">
+            <div class="card rounded-0 shadow-sm">
+                <div class="card-header">
+                    <input type="checkbox" name="vacation-request-select" id="vacation-request-select" class="select">
+                </div>
+                <div class="text-center mt-3">
+                    <img [src]="request.employeeImage ?? 'Portrait_Placeholder.png'" class="rounded-circle" alt="Profile Image" width="85" height="85">
+                </div>
+                <div class="card-body text-center">
+                    <h6 class="card-title">
+                        {{ request.id }} - {{ request.employeeName }}
+                    </h6>
+                    <div class="data-group">
+                        <p class="label text-muted">Submitted on:</p>
+                        <p class="submitted-on-value text-muted fw-bold">
+                            {{ request.submittedOn | date:'dd/MM/yyyy' }}
+                        </p>
+                    </div>
+                    <div class="data-group">
+                        <p class="label text-muted">Duration:</p>
+                        <p class="submitted-on-value text-muted fw-bold">
+                            {{ request.duration.durationString }} ({{ request.duration.startDate | date: 'dd/MM/yyyy' }} - {{request.duration.endDate | date: 'dd/MM/yyyy'}})
+                        </p>
+                    </div>
+                    <div class="data-group">
+                        <p class="label text-muted">Salary:</p>
+                        <p class="submitted-on-value text-muted fw-bold">
+                            {{ request.salary | currency: 'USD' : 'symbol' : '1.0-0' }}
+                        </p>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-sm btn-outline-success w-100"
+                                style="display: block;">
+                                Decline
+                            </button>
+                            </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-sm btn-success w-100"
+                                style="display: block;">
+                                Approve
+                            </button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+
+    <!-- Pagination -->
+    <div class="pager d-flex justify-content-center mt-4">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item previous" [ngClass]="{ 'disabled': pageIndex() === 1 }">
+                    <a class="page-link" [routerLink]="['/requests']" [queryParams]="{ pageIndex: pageIndex() - 1 }">
+                        <span aria-hidden="true">
+                            <fa-icon [icon]="leftArrowIcon" />
+                        </span>
+                    </a>
+                </li>
+
+
+                <li *ngFor="let num of [].constructor(totalPages); let i = index" class="page-item">
+                    <a [routerLink]="['/requests']" [queryParams]="{ pageIndex: i + 1 }" class="page-link"
+                        [ngClass]="{'current': i === pageIndex() - 1}">
+                        {{ i + 1 }}
+                    </a>
+                </li>
+
+
+
+                <li class="page-item next" [ngClass]="{ 'disabled': pageIndex() === totalPages }">
+                    <a class="page-link" [routerLink]="['/requests']" [queryParams]="{ pageIndex: pageIndex() + 1 }">
+                        <span aria-hidden="true">
+                            <fa-icon [icon]="rightArrowIcon" />
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

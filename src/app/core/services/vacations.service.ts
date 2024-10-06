@@ -81,7 +81,7 @@ export class VacationsService {
             status: RequestStatus.Declined
         },
         {
-            id: 6,
+            id: 8,
             employeeId: 1,
             employeeName: "Ahmad Muhaisen",
             employeeImage: null,
@@ -94,7 +94,7 @@ export class VacationsService {
 
     userService = inject(UserService);
 
-    getLoggedInUserVacationRequests(pageSize: number | null  = null, status: RequestStatus | null = null) {
+    getLoggedInUserVacationRequests(pageSize: number | null  = null, status: RequestStatus | null = null): VacationRequest[] {
         let isQueried = (request: VacationRequest) => {
             if(status) {
                 return request.status === status
@@ -110,4 +110,14 @@ export class VacationsService {
                    .slice(0, pageSize ?? this.vacationRequest.length);
     }
 
+    getAllVacationRequests(pageSize: number, pageNumber: number): VacationRequest[] {
+        return this.vacationRequest
+            //.sort((a, b) => b.submittedOn.getTime() - a.submittedOn.getTime())
+            .sort((a, b) => a.id - b.id)
+            .slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+    }
+
+    getVacationRequestsTotalPages(pageSize: number): number {
+        return Math.ceil(this.vacationRequest.length / pageSize);
+    }
 }
