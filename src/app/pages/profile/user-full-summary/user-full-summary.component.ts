@@ -1,14 +1,16 @@
+import { RouterLink } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { faCalendarMinus, faHourglassHalf, faPills, faSquareUpRight, faUserLarge } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from '../../../core/services/user.service';
+import { faCalendarMinus, faHourglassHalf, faPills, faSquareUpRight, faUserLarge } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-full-summary',
   standalone: true,
   imports: [
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterLink
   ],
   templateUrl: './user-full-summary.component.html',
   styleUrl: './user-full-summary.component.css'
