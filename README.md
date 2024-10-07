@@ -1,4 +1,5 @@
 # SKY Academy | Vacations Web App
 
-This project is a web application developed with **Angular**. It mimics the process of managing vacation requests for employees within an organization.
-This project was developed as part of a technical assignment for Sky Academy Internship Program.
+This **Angular-based** web application simulates the vacation request management process for employees in an organization.
+
+Developed as part of the **Sky Academy** Internship Program.
