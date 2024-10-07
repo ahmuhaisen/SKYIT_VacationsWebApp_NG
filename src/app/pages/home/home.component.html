@@ -5,7 +5,12 @@
 
     <app-latest-news-slider />
 
-    <app-section [icon]="requestsIcon" title="Vacation Requests" (search)="onSearch($event)">
+    <app-section
+    [icon]="requestsIcon"
+    title="Vacation Requests"
+    [linkRef]="'/requests'"
+    (search)="onSearch($event)"
+    >
         <div class="row">
             @for (req of vacationRequests; track req.id) {
                 <div class="col-md-3">
