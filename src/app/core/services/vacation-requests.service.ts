@@ -1,13 +1,13 @@
 import { inject, Injectable } from "@angular/core";
 
 import { UserService } from "./user.service";
-import { duration, VacationRequest } from "../models/vacation-request.model";
 import { RequestStatus } from "../enums/request-status.enum";
+import { duration, VacationRequest } from "../models/vacation-request.model";
 
 @Injectable({
     providedIn: "root"
 })
-export class VacationsService {
+export class VacationRequestsService {
     
     private vacationRequest: VacationRequest[] = [
         {

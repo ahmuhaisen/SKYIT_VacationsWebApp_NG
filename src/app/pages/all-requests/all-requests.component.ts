@@ -5,7 +5,7 @@ import { debounceTime, distinctUntilChanged, fromEvent, map } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAddressBook, faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-import { VacationsService } from '../../core/services/vacations.service';
+import { VacationRequestsService } from '../../core/services/vacation-requests.service';
 import { RequestCardComponent } from "../../components/request-card/request-card.component";
 import { PaginatorComponent } from "../../components/paginator/paginator.component";
 import { HighlightSearchPipe } from '../../core/pipes/highlight-search.pipe';
@@ -35,21 +35,21 @@ export class AllRequestsComponent {
   private noOfRequestsPerPage = 4;
   pageIndex = signal(1);
   searchTerm = signal('');
+  isSelectAllTriggered = signal(false);
 
   @ViewChild('searchInput', { static: true })
   searchInput!: ElementRef<HTMLInputElement>;
 
-  vacationsService = inject(VacationsService);
+  vacationRequestsService = inject(VacationRequestsService);
   route = inject(ActivatedRoute);
 
   requests = computed(() => {
-    return this.vacationsService.getAllVacationRequests(this.noOfRequestsPerPage, this.pageIndex())
+    return this.vacationRequestsService.getAllVacationRequests(this.noOfRequestsPerPage, this.pageIndex())
   });
 
-  isSelectAllTriggered = signal(false);
 
   get totalPages() {
-    return this.vacationsService.getVacationRequestsTotalPages(this.noOfRequestsPerPage);
+    return this.vacationRequestsService.getVacationRequestsTotalPages(this.noOfRequestsPerPage);
   }
 
   ngOnInit(): void {

@@ -3,7 +3,7 @@ import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HeaderComponent } from "./header/header.component";
-import { VacationsService } from '../../core/services/vacations.service';
+import { VacationRequestsService } from '../../core/services/vacation-requests.service';
 import { SectionComponent } from "../../components/section/section.component";
 import { RequestCardComponent } from "../../components/request-card/request-card.component";
 import { LatestNewsSliderComponent } from './latest-news-slider/latest-news-slider.component';
@@ -26,7 +26,7 @@ export class HomeComponent {
 
   requestsIcon = faAddressBook;
 
-  private vacationRequestsService = inject(VacationsService);
+  private vacationRequestsService = inject(VacationRequestsService);
 
   vacationRequests = this.vacationRequestsService.getLoggedInUserVacationRequests(4);
 
