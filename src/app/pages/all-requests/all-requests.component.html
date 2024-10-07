@@ -11,7 +11,7 @@
             <div class="me-2">
                 <fa-icon [icon]="searchIcon" class="text-success ms-1"></fa-icon>
             </div>
-            <input type="text" name="search" class="w-100" placeholder="Search..." (input)="onSearch($event.target!)">
+            <input #searchInput type="text" name="search" class="w-100" placeholder="Search..." />
         </div>
     </div>
 
@@ -32,7 +32,10 @@
     <div class="row mt-3">
         @for(request of requests(); track $index) {
             <div class="col-lg-3 col-md-6 mb-2">
-                <app-request-card [request]="request" [isSelected]="isSelectAllTriggered()"/>
+                <app-request-card 
+                [request]="request"
+                [searchTerm]="searchTerm()"
+                [isSelected]="isSelectAllTriggered()"/>
             </div>
         } @empty {
             <div class="text-center">
@@ -43,35 +46,8 @@
 
 
     <!-- Pagination -->
-    <div class="pager d-flex justify-content-center mt-4">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item previous" [ngClass]="{ 'disabled': pageIndex() === 1 }">
-                    <a class="page-link" [routerLink]="['/requests']" [queryParams]="{ pageIndex: pageIndex() - 1 }">
-                        <span aria-hidden="true">
-                            <fa-icon [icon]="leftArrowIcon" />
-                        </span>
-                    </a>
-                </li>
-
-
-                <li *ngFor="let num of [].constructor(totalPages); let i = index" class="page-item">
-                    <a [routerLink]="['/requests']" [queryParams]="{ pageIndex: i + 1 }" class="page-link"
-                        [ngClass]="{'current': i === pageIndex() - 1}">
-                        {{ i + 1 }}
-                    </a>
-                </li>
-
-
-
-                <li class="page-item next" [ngClass]="{ 'disabled': pageIndex() === totalPages }">
-                    <a class="page-link" [routerLink]="['/requests']" [queryParams]="{ pageIndex: pageIndex() + 1 }">
-                        <span aria-hidden="true">
-                            <fa-icon [icon]="rightArrowIcon" />
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <app-paginator 
+    [pageIndex]="pageIndex()" 
+    [totalPages]="totalPages"
+    class="pager d-flex justify-content-center mt-4"/>
 </div>

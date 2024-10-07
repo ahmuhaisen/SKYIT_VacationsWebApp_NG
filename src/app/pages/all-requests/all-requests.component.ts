@@ -1,11 +1,14 @@
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, ElementRef, inject, signal, ViewChild } from '@angular/core';
 import { CurrencyPipe, DatePipe, NgClass, NgFor } from '@angular/common';
+import { debounceTime, distinctUntilChanged, fromEvent, map } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faAddressBook, faChevronLeft, faChevronRight, faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faAddressBook, faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import { VacationsService } from '../../core/services/vacations.service';
 import { RequestCardComponent } from "../../components/request-card/request-card.component";
+import { PaginatorComponent } from "../../components/paginator/paginator.component";
+import { HighlightSearchPipe } from '../../core/pipes/highlight-search.pipe';
 
 @Component({
   selector: 'app-all-requests',
@@ -17,7 +20,9 @@ import { RequestCardComponent } from "../../components/request-card/request-card
     RouterLink,
     DatePipe,
     CurrencyPipe,
-    RequestCardComponent
+    RequestCardComponent,
+    PaginatorComponent,
+    HighlightSearchPipe
 ],
   templateUrl: './all-requests.component.html',
   styleUrl: './all-requests.component.css'
@@ -26,12 +31,13 @@ export class AllRequestsComponent {
   addressBookIcon = faAddressBook;
   searchIcon = faMagnifyingGlass;
   filterIcon = faFilter;
-  leftArrowIcon = faChevronLeft;
-  rightArrowIcon = faChevronRight;
 
   private noOfRequestsPerPage = 4;
   pageIndex = signal(1);
+  searchTerm = signal('');
 
+  @ViewChild('searchInput', { static: true })
+  searchInput!: ElementRef<HTMLInputElement>;
 
   vacationsService = inject(VacationsService);
   route = inject(ActivatedRoute);
@@ -52,16 +58,24 @@ export class AllRequestsComponent {
       let temp = +params['pageIndex'];
       this.tryUpdatePageNumber(temp);
     });
-  
-  }
 
-  onSearch(target: EventTarget) {
-  }
+    fromEvent(this.searchInput.nativeElement, 'input')
+      .pipe(
+        map((event: Event) => (event.target as HTMLInputElement).value),
+        debounceTime(500), // Wait for 0.5 second after typing stops
+        distinctUntilChanged()
+      )
+      .subscribe((searchValue: string) => {
+        this.searchTerm.set(searchValue);
+      });
 
+  }
 
   private tryUpdatePageNumber(newValue: number) {
     if (newValue) {
-      newValue > this.totalPages || newValue < 1 ? this.pageIndex.set(1): this.pageIndex.set(newValue);
+      newValue > this.totalPages || newValue < 1 ?
+      this.pageIndex.set(1) :
+      this.pageIndex.set(newValue);
     }
     else {
       this.pageIndex.set(1);

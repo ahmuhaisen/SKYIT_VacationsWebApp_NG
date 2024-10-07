@@ -1,0 +1,11 @@
+.active{
+    color: rgb(0, 102, 10) !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.page-link:focus{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}

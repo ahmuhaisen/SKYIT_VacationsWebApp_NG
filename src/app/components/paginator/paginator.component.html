@@ -1,0 +1,25 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <!-- Previous Page -->
+        <li class="page-item" [ngClass]="{ 'disabled': pageIndex() === 1 }">
+            <a class="page-link" [routerLink]="[]" [queryParams]="{ pageIndex: pageIndex() - 1 }">
+                <fa-icon [icon]="leftArrowIcon"></fa-icon>
+            </a>
+        </li>
+
+        <!-- Page Numbers -->
+        <li *ngFor="let page of [].constructor(totalPages()); let i = index" class="page-item">
+            <a class="page-link" [routerLink]="[]" [queryParams]="{ pageIndex: i + 1 }"
+                [ngClass]="{ 'active': i + 1 === pageIndex() }">
+                {{ i + 1 }}
+            </a>
+        </li>
+
+        <!-- Next Page -->
+        <li class="page-item" [ngClass]="{ 'disabled': pageIndex() === totalPages() }">
+            <a class="page-link" [routerLink]="[]" [queryParams]="{ pageIndex: pageIndex() + 1 }">
+                <fa-icon [icon]="rightArrowIcon"></fa-icon>
+            </a>
+        </li>
+    </ul>
+</nav>
