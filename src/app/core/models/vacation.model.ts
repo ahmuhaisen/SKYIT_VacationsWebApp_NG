@@ -1,5 +1,5 @@
 import { VacationType } from "../enums/vacation-type.enum";
-import { duration } from "./vacation-request.model";
+import { duration } from "../helpers/duration.type";
 
 export interface Vacation {
     id: number,

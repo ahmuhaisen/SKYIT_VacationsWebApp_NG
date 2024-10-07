@@ -1,9 +1,9 @@
 import { inject, Injectable } from "@angular/core";
 
-import { Vacation } from "../models/vacation.model";
-import { VacationType } from "../enums/vacation-type.enum";
-import { duration } from "../models/vacation-request.model";
 import { UserService } from "./user.service";
+import { Vacation } from "../models/vacation.model";
+import { duration } from "../helpers/duration.type";
+import { VacationType } from "../enums/vacation-type.enum";
 
 @Injectable({
     providedIn: "root"
